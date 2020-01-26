@@ -4,10 +4,11 @@ import parseStringAsArray from '../utils/parseStringAsArray';
 
 class SearchController {
   async index(request, response) {
-    const { latitude, longitude, techs } = request.query;
+    const { latitude, longitude, techs } = request.query; // TODO pegar dados dos parametros da requisição
 
-    const techsArray = parseStringAsArray(techs);
+    const techsArray = parseStringAsArray(techs); // TODO criar um array de techs passadas como uma string
 
+    // TODO buscar devs como filtros de informações passada
     const devs = await Dev.find({
       techs: {
         $in: techsArray,
@@ -16,13 +17,14 @@ class SearchController {
         $near: {
           $geometry: {
             type: 'Point',
-            coodinates: [longitude, latitude],
+            coordinates: [longitude, latitude],
           },
           $maxDistance: 10000,
         },
       },
     });
-    return response.json({ devs });
+
+    return response.json({ devs }); // retornar um objeto com os devs enquadrados
   }
 }
 

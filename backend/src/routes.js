@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import DevController from './controllers/DevController';
-import SearchController from './controllers/SearchController';
+import DevController from './app/controllers/DevController';
+import SearchController from './app/controllers/SearchController';
 
 const routes = Router();
 
-routes.post('/users', DevController.store);
-routes.get('/users', DevController.index);
+routes.post('/devs', DevController.store);
+routes.get('/devs', DevController.index);
 
 routes.get('/search', SearchController.index);
 

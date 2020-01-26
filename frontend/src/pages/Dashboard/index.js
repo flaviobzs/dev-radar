@@ -34,15 +34,9 @@ export default function Dashboard() {
       </aside>
       <main>
         <ul>
-          {/* {devs.map(dev => (
-            <DevItem key={dev._id} dev={dev}/>
-
-
-             {return ()}
-
-          ))} */}
-          <DevItem />
-          <DevItem />
+          {devs.map(dev => (
+            <DevItem key={dev._id} dev={dev} />
+          ))}
         </ul>
       </main>
     </Container>
